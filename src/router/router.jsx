@@ -1,6 +1,7 @@
 import Dashboard from "@/components/admin/Dashboard";
 import AdminLayout from "@/layout/AdminLayout";
 import Layout from "@/layout/Layout";
+import ContactPage from "@/pages/contact_page/ContactPage";
 import Home from "@/pages/home/Home";
 
 
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
       },
 
     ],
