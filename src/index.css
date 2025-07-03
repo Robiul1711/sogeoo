@@ -12,7 +12,8 @@
 
   /* color */
 
-  --color-primary: green;
+  --color-Primary: #3B4754;
+  --color-Secondary: #BFB192;
   --color-bg-custom: linear-gradient(red, yellow);
 
   /* breakpoint */
