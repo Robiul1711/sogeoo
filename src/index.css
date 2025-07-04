@@ -221,3 +221,6 @@
 .bg-custom {
   background: var(--color-bg-custom);
 }
+button{
+  cursor: pointer;
+}

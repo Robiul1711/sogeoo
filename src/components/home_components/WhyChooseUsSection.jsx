@@ -1,30 +1,34 @@
-import React, { useState } from 'react';
-import whychoose from '@/assets/images/whychoose.png';
+import React, { useState } from "react";
+import whychoose from "@/assets/images/whychoose.png";
 import { GoArrowUpRight } from "react-icons/go";
 
 const data = [
   {
     id: 1,
     title: "Ground Source Heat Pumps ",
-    description: "Ground Source Heat Pumps (GSHPs) — also called Geothermal Heat Pumps — are energy-efficient heating and cooling systems that use the stable temperature of the ground to regulate the climate inside a building. GSHPs circulate a fluid through underground pipes...",
+    description:
+      "Ground Source Heat Pumps (GSHPs) — also called Geothermal Heat Pumps — are energy-efficient heating and cooling systems that use the stable temperature of the ground to regulate the climate inside a building. GSHPs circulate a fluid through underground pipes...",
     image: whychoose,
   },
   {
     id: 2,
     title: "Air Source Heat Pumps ",
-    description: "Air Source Heat Pumps absorb heat from the outside air and use it to warm your home. They work even in cold temperatures and are a great alternative to traditional boilers...",
+    description:
+      "Air Source Heat Pumps absorb heat from the outside air and use it to warm your home. They work even in cold temperatures and are a great alternative to traditional boilers...",
     image: whychoose,
   },
   {
     id: 3,
     title: "Hydronic Heating & Cooling",
-    description: "Hydronic systems use water to transfer heat in heating and cooling systems. They're energy-efficient, quiet, and ideal for underfloor heating setups...",
+    description:
+      "Hydronic systems use water to transfer heat in heating and cooling systems. They're energy-efficient, quiet, and ideal for underfloor heating setups...",
     image: whychoose,
   },
   {
     id: 4,
     title: "Radiant Floor Heating",
-    description: "Radiant floor heating warms your home from the ground up by running warm water through pipes under your flooring — a quiet, invisible, and energy-efficient method...",
+    description:
+      "Radiant floor heating warms your home from the ground up by running warm water through pipes under your flooring — a quiet, invisible, and energy-efficient method...",
     image: whychoose,
   },
 ];
@@ -38,14 +42,17 @@ const WhyChooseUsSection = () => {
     <section className="section-padding-y section-padding-x relative">
       {/* Heading */}
       <div className="text-center max-w-2xl mx-auto">
-        <p className="text-2xl font-semibold text-Secondary mb-2">Why Choose Us</p>
+        <p className="text-2xl font-semibold text-Secondary mb-2">
+          Why Choose Us
+        </p>
         <h2 className="text-3xl md:text-5xl font-bold leading-tight text-Primary">
           Why Work with SóGeo Public Adjusters?
         </h2>
       </div>
 
       <p className="text-lg text-gray-600 mt-4 text-center max-w-5xl mx-auto mb-16">
-        When you work with SóGeo Public Adjusters, you gain a trusted partner who truly looks out for your interests...
+        When you work with SóGeo Public Adjusters, you gain a trusted partner
+        who truly looks out for your interests...
       </p>
 
       {/* Features */}
@@ -90,7 +97,7 @@ const WhyChooseUsSection = () => {
               onClick={() => setShowAll(true)}
               className="px-10 rounded-full py-3 border border-Secondary bg-[#3B4754] text-white font-semibold  hover:bg-Secondary hover:text-white transition-all duration-200"
             >
-             See All
+              See All
             </button>
           </div>
         )}
