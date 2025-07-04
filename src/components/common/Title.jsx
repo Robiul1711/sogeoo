@@ -4,8 +4,9 @@ import clsx from 'clsx'
 const sizeMap = {
   title64: 'text-[34px] sm:text-6xl font-bold',
   title48: 'text-3xl sm:text-5xl font-bold',
+  title32: 'text-xl sm:text-3xl ',
   title24: 'text-xl sm:text-2xl font-medium',
-  title20: 'text-lg sm:text-xl font-semibold',
+  title20: 'text-lg sm:text-xl font-normal',
   title18: 'text-base sm:text-lg font-medium',
   title16: 'text-base sm:text-lg font-normal',
   title14: 'text-sm sm:text-base font-normal',

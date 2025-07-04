@@ -1,4 +1,3 @@
-import CommonBanner from '@/components/common/CommonBanner'
 import AboutUs from '@/components/home_components/AboutUs'
 import Banner from '@/components/home_components/Banner'
 import BrandSection from '@/components/home_components/BrandSection'
@@ -16,7 +15,7 @@ const Home = () => {
      <WhatOurClient />
      <GetInTouch />
      <BrandSection />
-     <CommonBanner />
+
     </div>
   )
 }

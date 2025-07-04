@@ -1,6 +1,10 @@
 import Dashboard from "@/components/admin/Dashboard";
 import AdminLayout from "@/layout/AdminLayout";
 import Layout from "@/layout/Layout";
+import AboutUsPage from "@/pages/aboutUs_page/AboutUsPage";
+import BlogDetaisPage from "@/pages/blog_detail_page/BlogDetaisPage";
+import BlogPage from "@/pages/blog_page/BlogPage";
+import CaseStudiesPage from "@/pages/caseStudies_page/CaseStudiesPage";
 import ContactPage from "@/pages/contact_page/ContactPage";
 import Home from "@/pages/home/Home";
 
@@ -15,6 +19,22 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <AboutUsPage />,
+      },
+      {
+        path: "/blog",
+        element: <BlogPage />,
+      },
+      {
+        path: "/blog-details/:id",
+        element: <BlogDetaisPage />,
+      },
+      {
+        path: "/case-studies",
+        element: <CaseStudiesPage />,
       },
       {
         path: "/contact",
