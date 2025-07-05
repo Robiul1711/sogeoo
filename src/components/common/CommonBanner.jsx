@@ -2,7 +2,7 @@ import banner from "@/assets/images/banner.png";
 import { motion } from "framer-motion";
 import Title from "../common/Title";
 
-const CommonBanner = ({ image, title, description, link, linkText }) => {
+const CommonBanner = ({ image, title, description, link, linkText, logo }) => {
   const MotionTitle = motion(Title);
 
   return (
@@ -20,9 +20,9 @@ const CommonBanner = ({ image, title, description, link, linkText }) => {
 
       {/* Overlay Content */}
       <div className="relative z-20 flex flex-col justify-center items-start h-full text-white px-4 md:px-10">
-        <div className="max-w-1/2 w-full">
+        <div className="pb-3">{logo}</div>
+        <div className="max-w-[70%] w-full">
           <MotionTitle
-
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{
@@ -36,7 +36,6 @@ const CommonBanner = ({ image, title, description, link, linkText }) => {
             className="leading-custom  "
             level="title64"
             viewport={{ once: true }}
-        
           >
             {title}
           </MotionTitle>
@@ -51,17 +50,14 @@ const CommonBanner = ({ image, title, description, link, linkText }) => {
               ease: "easeOut",
             }}
             viewport={{ once: true }}
-            className="mb-5 md:mt-6 max-w-[1070px] w-full md:text-2xl font-opensans"
+            className="mb-5 md:mt-6 max-w-[1070px] w-full md:text-lg !font-normal"
           >
             {description}
           </MotionTitle>
 
-         <motion.button
-  className="px-10 py-3 rounded-full font-semibold transition duration-200 bg-white text-Primary"
->
-  {linkText}
-</motion.button>
-
+          <motion.button className="px-10 py-3 rounded-full font-semibold transition duration-200 bg-white text-Primary">
+            {linkText}
+          </motion.button>
         </div>
       </div>
     </section>

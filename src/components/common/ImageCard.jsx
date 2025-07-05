@@ -36,7 +36,7 @@ const ImageCard = ({ title, description, link, linkText }) => {
           heating and cooling solutions for your home or business in Melbourne,
           we encourage you to take action today.
         </Title>
-        <CommonButton className="mt-4 bg-Secondary">
+        <CommonButton className="mt-4 bg-Secondary text-white">
           Request a quote
         </CommonButton>
       </div>

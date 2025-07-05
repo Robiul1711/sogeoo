@@ -55,5 +55,29 @@ export const Comfortableliving  = () => {
 </svg>
   )
 }
+export const LogoIcon  = () => {
+  return (
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="164" viewBox="0 0 140 164" fill="none">
+  <g clip-path="url(#clip0_298_1474)">
+    <mask id="mask0_298_1474"  maskUnits="userSpaceOnUse" x="0" y="0" width="140" height="164">
+      <path d="M139.5 0H0.5V164H139.5V0Z" fill="white"/>
+    </mask>
+    <g mask="url(#mask0_298_1474)">
+      <path d="M60.9277 100.88V49.731C60.9277 33.952 73.7637 21.116 89.5417 21.116C105.319 21.116 118.156 33.952 118.156 49.731V100.574" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+      <path d="M50.5137 119.968V50.2028C50.5137 28.6818 68.0237 11.1738 89.5437 11.1738C111.064 11.1738 128.571 28.6818 128.571 50.2028V119.552" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+      <path d="M138.883 111.013V49.7619C138.883 23.1069 117.197 1.4209 90.5422 1.4209C63.8872 1.4209 42.2012 23.1069 42.2012 49.7619V111.529" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+      <path d="M21.9004 62.515V113.359C21.9004 129.136 34.7364 141.973 50.5144 141.973C66.2914 141.973 79.1284 129.136 79.1284 113.359V62.209" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+      <path d="M11.7344 43.7881V113.136C11.7344 134.656 29.2444 152.166 50.7644 152.166C72.2844 152.166 89.7924 134.656 89.7924 113.136V43.3701" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+      <path d="M2.17188 52.3258V113.577C2.17188 140.232 23.8579 161.918 50.5129 161.918C77.1679 161.918 98.8539 140.232 98.8539 113.577V51.8098" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+    </g>
+  </g>
+  <defs>
+    <clipPath id="clip0_298_1474">
+      <rect width="139" height="164" fill="white" transform="translate(0.5)"/>
+    </clipPath>
+  </defs>
+</svg>
+  )
+}
 
 
