@@ -11,6 +11,7 @@ import GeothermalWorks from "@/pages/geothermalWorks_page/GeothermalWorks";
 import GroundSource from "@/pages/groundSourcePage/GroundSource";
 import Home from "@/pages/home/Home";
 import HydronicPage from "@/pages/hydronicPage/HydronicPage";
+import HydronicsDetails from "@/pages/hydronicPage/HydronicsDetails";
 
 
 import { createBrowserRouter } from "react-router-dom";
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/blog-details/:id",
         element: <BlogDetaisPage />,
+      },
+      {
+        path: "/hydronic-details/:id",
+        element: <HydronicsDetails />,
       },
       {
         path: "/case-studies",

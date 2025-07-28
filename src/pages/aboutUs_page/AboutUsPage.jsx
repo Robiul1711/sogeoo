@@ -1,20 +1,27 @@
 import CommonBanner from '@/components/common/CommonBanner'
-import React from 'react'
-import aboutpage from '../../assets/images/aboutpage.png'
 import AboutUs from '@/components/home_components/AboutUs'
 import AboutUsMoreDetail from '@/components/aboutUs_components/AboutUsMoreDetail'
 import BrandSection from '@/components/home_components/BrandSection'
 import PoweringAGreener from '@/components/aboutUs_components/PoweringAGreener'
+import useAxiosPublic from '@/hooks/useAxiosPublic'
+import { useQuery } from '@tanstack/react-query'
 const AboutUsPage = () => {
+    const axiosPublic = useAxiosPublic();
+  const { data: banner } = useQuery({
+    queryKey: ["aboutpage-banner"],
+    queryFn: async () => {
+      const response = await axiosPublic.get("/cms/about/banner");
+      return response?.data;
+    },
+  });
+
   return (
     <div>
       <CommonBanner
-        image={aboutpage}
-        title={"About SóGeo – Melbourne’s Geothermal & Hydronic Specialists"}
-        description={
-          "Learn about SóGeo, a third-generation Melbourne hydronic heating company specializing in geothermal and air-source heat pump solutions. Our mission: sustainable, luxury comfort for homes & businesses"
-        }
-        link={"#"}
+        image={banner?.data?.image}
+        title={banner?.data?.title}
+        description={banner?.data?.sub_title}
+        link={"/contact"}
         linkText={"Contact Us"}
       />
         <AboutUs />

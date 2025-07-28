@@ -8,23 +8,31 @@ import VideoSection from "@/components/geothermalWorks_components/VideoSection";
 import FAQ from "@/components/air_source_components/FAQ";
 import NextGeneration from "@/components/air_source_components/NextGeneration";
 import AboutUsMoreDetail from "@/components/aboutUs_components/AboutUsMoreDetail";
+import useAxiosPublic from "@/hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 const AirSourcePage = () => {
+    const axiosPublic = useAxiosPublic();
+  const { data: banner } = useQuery({
+    queryKey: ["airsource-banner"],
+    queryFn: async () => {
+      const response = await axiosPublic.get("/cms/airsource/banner");
+      return response?.data;
+    },
+  });
+
   return (
     <div>
       <CommonBanner
-        image={geotharmal}
-        title={
-          "Air Source Hydronic Heat Pumps Melbourne | Efficient Heating & Cooling – SóGeo"
-        }
-        description={
-          "SóGeo designs and installs hydronic heat pumps for homes and commercial buildings across Melbourne. Quiet, efficient, and tailored to your project."
-        }
-        link={"#"}
+        image={banner?.data?.image}
+        title={banner?.data?.title}
+        description={banner?.data?.sub_title}
+        link={"/contact"}
         linkText={"Contact Us"}
       />
+
       <NextGeneration />
-            <AboutUsMoreDetail />
-      <div className="section-padding-x">
+      <AboutUsMoreDetail />
+      <div className="section-padding-x mt-10">
         <VideoSection />
       </div>
       <FAQ />

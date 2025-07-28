@@ -57,7 +57,7 @@ export const Comfortableliving  = () => {
 }
 export const LogoIcon  = () => {
   return (
-<svg xmlns="http://www.w3.org/2000/svg" width="140" height="164" viewBox="0 0 140 164" fill="none">
+<svg className='size-16 sm:size-20 md:size-24 lg:size-28' xmlns="http://www.w3.org/2000/svg" width="140" height="164" viewBox="0 0 140 164" fill="none">
   <g clip-path="url(#clip0_298_1474)">
     <mask id="mask0_298_1474"  maskUnits="userSpaceOnUse" x="0" y="0" width="140" height="164">
       <path d="M139.5 0H0.5V164H139.5V0Z" fill="white"/>

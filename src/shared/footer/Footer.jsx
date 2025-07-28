@@ -10,9 +10,10 @@ import {
   Youtube,
 } from "lucide-react";
 import footerlogo from "../../assets/images/footerlogo.png";
+
 const navLinks = [
   { name: "Home", href: "/#home" },
-  { name: "About  Us", href: "/#about" },
+  { name: "About Us", href: "/#about" },
   { name: "Case Studies", href: "/#case" },
   { name: "Blog", href: "/#blog" },
   { name: "Contact Us", href: "/#contact" },
@@ -24,145 +25,103 @@ const Footer = ({ scrolled, activeLink, setActiveLink }) => {
       <div className="w-full">
         <img src={footerbanner} alt="" className="w-full h-auto object-cover" />
       </div>
-      <div className="flex flex-col md:flex-row justify-between w-full gap-8 md:gap-0">
-        {/* Logo and Description */}
-        <div className="md:max-w-[50%] lg:max-w-[30%]">
-          <img
-            src={footerlogo}
-            alt="Company Logo"
-            className="h-16 w-auto mb-5"
-          />
 
-          <p className="md:text-lg text-white mt-6 md:mt-10 mb-3">
+      <div className="flex flex-col gap-8 md:flex-row justify-between w-full mt-8">
+        {/* Logo and Description */}
+        <div className="md:w-1/2 lg:w-1/3">
+          <img src={footerlogo} alt="Company Logo" className="h-16 w-auto mb-5" />
+          <p className="text-white text-sm md:text-base mb-6">
             A clean, informative site showcasing SóGeo’s sustainable heat pump
             solutions for efficient hydronic heating and cooling in Melbourne.
           </p>
-          <div className="flex space-x-4 ">
-            {[Facebook, Instagram, Linkedin, Youtube, Twitter].map(
-              (Icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="p-2 bg-primary text-white rounded-[12px] cursor-pointer hover:text-primary hover:bg-gray-200 transition-colors duration-300"
-                  aria-label={`${Icon.name} social media link`}
-                >
-                  <Icon className="size-5 md:size-6" />
-                </a>
-              )
-            )}
+          <div className="flex space-x-4">
+            {[Facebook, Instagram, Linkedin, Youtube, Twitter].map((Icon, i) => (
+              <a
+                key={i}
+                href="#"
+                className="p-2 bg-primary text-white rounded-[12px] hover:text-primary hover:bg-gray-200 transition-colors duration-300"
+                aria-label={`${Icon.name} social`}
+              >
+                <Icon className="w-5 h-5 md:w-6 md:h-6" />
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* Links Grid */}
-        <div className="grid grid-cols-1 xxs:grid-cols-5 gap-6 md:gap-8 lg:gap-12 mt-6 md:mt-0">
-          <div></div>
-          {/* Quick Links */}
+        {/* Links & Contact */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-10 w-full text-sm">
+          <div className="col-span-1 hidden sm:block" />
+
+          {/* Quick Access */}
           <div>
-            <h2 className="text-base md:text-lg font-semibold border-b text-white pb-2">
+            <h2 className="text-white font-semibold border-b pb-2 mb-3 text-base">
               Quick Access
             </h2>
-            <ul className="mt-3 md:mt-4 space-y-3 md:space-y-4 text-sm md:text-base text-secondary">
-              {navLinks.map((link, index) => (
-                <li
-                  key={index}
-                  className="relative text-base cursor-pointer font-semibold group duration-300 "
-                >
+            <ul className="space-y-3 text-secondary">
+              {navLinks.map((link, idx) => (
+                <li key={idx}>
                   <HashLink
                     to={link.href}
                     scroll={(el) =>
-                      el.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      })
+                      el.scrollIntoView({ behavior: "smooth", block: "start" })
                     }
-                    onClick={() => {
-                      setActiveLink(link.href);
-                    }}
-                    className={`relative font-sans ${
+                    onClick={() => setActiveLink(link.href)}
+                    className={`relative block hover:text-primary ${
                       activeLink === link.href
                         ? "text-primary font-bold"
                         : scrolled
-                        ? "text-Secondary"
+                        ? "text-secondary"
                         : "text-white"
                     }`}
                   >
                     {link.name}
-                    {/* Active underline */}
-                    {activeLink === link.href && (
-                      <span className="absolute left-0 bottom-0 w-full h-0.5 bg-primary" />
-                    )}
-                    {/* Hover underline */}
-                    {activeLink !== link.href && (
-                      <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary" />
-                    )}
                   </HashLink>
                 </li>
               ))}
             </ul>
           </div>
-          {/* Contact Info */}
+
+          {/* Services */}
           <div>
-            <h2 className="text-base md:text-lg text-white font-semibold border-b pb-2">
-              Service
+            <h2 className="text-white font-semibold border-b pb-2 mb-3 text-base">
+              Services
             </h2>
-            <ul className="mt-3 md:mt-4 space-y-3 md:space-y-4 text-sm md:text-base text-secondary">
-              <li className="flex items-center gap-2 cursor-pointer hover:text-Secondary">
-                <span>Ground Source Heat Pumps </span>
-              </li>
-              <li className="flex items-center gap-2 cursor-pointer hover:text-Secondary">
-                <span>Air Source Heat Pumps </span>
-              </li>
-              <li className="flex items-center gap-2 cursor-pointer hover:text-Secondary">
-                <span>Hydronic Heating & Cooling </span>
-              </li>
-              <li className="flex items-center gap-2 cursor-pointer hover:text-Secondary">
-                <span>System Design </span>
-              </li>
+            <ul className="space-y-3 text-secondary">
+              <li>Ground Source Heat Pumps</li>
+              <li>Air Source Heat Pumps</li>
+              <li>Hydronic Heating & Cooling</li>
+              <li>System Design</li>
             </ul>
           </div>
-          {/* Contact Info */}
+
+          {/* Security */}
           <div>
-            <h2 className="text-base md:text-lg text-white font-semibold border-b pb-2">
+            <h2 className="text-white font-semibold border-b pb-2 mb-3 text-base">
               Security
             </h2>
-            <ul className="mt-3 md:mt-4 space-y-3 md:space-y-4 text-sm md:text-base text-secondary">
-              <li className="flex items-center gap-2 cursor-pointer hover:text-Secondary">
-                <span>Privacy Policy </span>
-              </li>
-              <li className="flex items-center gap-2 cursor-pointer hover:text-Secondary">
-                <span>Privacy Policy </span>
-              </li>
-              <li className="flex items-center gap-2 cursor-pointer hover:text-Secondary">
-                <span>Terms of Service </span>
-              </li>
-              <li className="flex items-center gap-2 cursor-pointer hover:text-Secondary">
-                <span>Cookies Settings </span>
-              </li>
+            <ul className="space-y-3 text-secondary">
+              <li>Privacy Policy</li>
+              <li>Terms of Service</li>
+              <li>Cookies Settings</li>
             </ul>
           </div>
-          {/* Contact Info */}
+
+          {/* Contact */}
           <div>
-            <h2 className="text-base md:text-lg text-white font-semibold border-b pb-2">
+            <h2 className="text-white font-semibold border-b pb-2 mb-3 text-base">
               Contact Us
             </h2>
-            <ul className="mt-3 md:mt-4 space-y-3 md:space-y-4 text-sm md:text-base text-white">
-              <li className="flex items-center gap-2 cursor-pointer hover:text-Secondary">
-                <span>
-                  <span>Email: info@Sógeo.com.au</span>
-                </span>
-              </li>
-              <li className="flex items-center gap-2 cursor-pointer hover:text-Secondary">
-                <span>Call Us: +61 3 8905 2622</span>
-              </li>
+            <ul className="space-y-3 text-white">
+              <li>Email: info@Sógeo.com.au</li>
+              <li>Call Us: +61 3 8905 2622</li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div className="flex pt-5 border-t border-dashed w-full xxs:gap-8 gap-2 mt-5 sm:mt-10 md:gap-0">
-        <p className="text-center w-full text-white">
-          Copyright © 2023 All rights reserved
-        </p>
+      {/* Bottom Copyright */}
+      <div className="pt-6 mt-10 border-t border-dashed text-center text-white text-sm">
+        © 2023 SóGeo — All rights reserved.
       </div>
     </footer>
   );
