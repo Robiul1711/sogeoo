@@ -4,7 +4,7 @@ import blogdetails from '../../assets/images/blogdetails.png'
 import StepByStep from '@/components/blogDetails_components/StepByStep'
 import ImageCard from '@/components/common/ImageCard'
 import BrandSection from '@/components/home_components/BrandSection'
-const BlogDetaisPage = () => {
+const HydronicsDetails = () => {
   return (
     <div>
       <CommonBanner 
@@ -21,4 +21,4 @@ const BlogDetaisPage = () => {
   )
 }
 
-export default BlogDetaisPage
+export default HydronicsDetails

@@ -13,7 +13,7 @@ const ContactPage = () => {
           "Whether you have a question, comment, or feedback, please don't hesitate to reach out to us. We're here to help and look forward to connecting with you."
         }
         link={"#"}
-        linkText={"Contact Us"}
+        // linkText={"Contact Us"}
       />
       <ContactForm />
       <BrandSection />

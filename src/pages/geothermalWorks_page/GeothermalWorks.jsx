@@ -13,7 +13,7 @@ const GeothermalWorks = () => {
         description={
             "Geothermal heating and cooling systems are efficient, sustainable, and environmentally friendly alternative to fossil fuel-based heating systems."
         }
-        link={"#"}
+        link={"/contact"}
         linkText={"Contact Us"}
       />
       <HowGeoTharmalWork />

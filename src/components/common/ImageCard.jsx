@@ -2,17 +2,24 @@ import React from "react";
 import imagecard from "../../assets/images/imagecard.png";
 import Title from "./Title";
 import CommonButton from "./CommonButton";
-const ImageCard = ({ title, description, link, linkText }) => {
+
+const ImageCard = () => {
   return (
-    <div className="section-padding-x section-padding-y flex items-center justify-between w-full">
-      <div className="w-[420px] h-[800px] rounded-4xl bg-Secondary relative">
-        <div className="absolute w-[700px] h-full rounded-2xl p-2.5  ">
-          <img src={imagecard} alt="" className="w-full h-full" />
-        </div>
+    <div className="section-padding-x  flex flex-col lg:flex-row items-center justify-between gap-10 w-full">
+      
+      {/* Image Section */}
+      <div className="w-full lg:w-1/2 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]  rounded-2xl">
+        
+          <img 
+            src={imagecard}
+            alt="Geothermal System"
+            className="w-full h-full object-contain rounded-2xl"
+          />
       </div>
 
-      <div className="w-1/2">
-        <Title level="title32" className="text-Primary ">
+      {/* Text Content */}
+      <div className="w-full lg:w-1/2">
+        <Title level="title32" className="text-Primary">
           If you’re interested in exploring geothermal heating and cooling
           solutions for your home or business in Melbourne, we encourage you to
           take action today. Contact the experts at sogeo.com.au for a free
@@ -20,6 +27,7 @@ const ImageCard = ({ title, description, link, linkText }) => {
           specific needs and provide tailored recommendations to help you make
           an informed decision.
         </Title>
+
         <Title level="title20" className="mt-4">
           To further your understanding of geothermal technology, we invite you
           to download our comprehensive guide, “Harnessing the Earth’s Energy: A
@@ -36,7 +44,8 @@ const ImageCard = ({ title, description, link, linkText }) => {
           heating and cooling solutions for your home or business in Melbourne,
           we encourage you to take action today.
         </Title>
-        <CommonButton className="mt-4 bg-Secondary text-white">
+
+        <CommonButton className="mt-6 bg-Secondary text-white">
           Request a quote
         </CommonButton>
       </div>

@@ -88,7 +88,7 @@ const Navbar = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className={`section-padding-x py-4 fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        className={`section-padding-x py-2 md:py-4 fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled ? "bg-white/80 backdrop-blur-sm shadow-md" : "bg-transparent"
         }`}
       >
@@ -167,41 +167,41 @@ const Navbar = () => {
           </div>
 
           <div className="hidden lg:block">
-            <CommonButton className="bg-[#3B4754] text-white px-6 py-2 hover:bg-[#2c3641] transition-colors duration-300">
+            <CommonButton link="/contact" className="bg-[#3B4754] text-white px-6 py-2 hover:bg-[#2c3641] transition-colors duration-300">
               Request a quote
             </CommonButton>
           </div>
 
-          <div className="lg:hidden">
+         
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="text-3xl hover:text-primary transition-colors duration-300"
+              className="text-3xl hover:text-primary transition-colors duration-300 lg:hidden"
             >
               <FiMenu />
             </button>
-          </div>
+         
         </div>
       </motion.nav>
 
       {/* Mobile Sidebar */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            className="fixed inset-0 z-50 flex"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          >
+        <motion.div
+  className="fixed inset-0 z-50 flex"
+  initial={{ x: "-100%" }}         // <-- Slide in from left
+  animate={{ x: 0 }}
+  exit={{ x: "-100%" }}            // <-- Slide out to left
+
+>
             <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
             <motion.div
-              ref={menuRef}
-              className="relative bg-white w-4/5 max-w-xs h-full p-6 z-50"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "tween", duration: 0.3 }}
-            >
+    ref={menuRef}
+    className="relative bg-white w-4/5 max-w-xs h-full p-6 z-50"
+    initial={{ x: "-100%" }}       // <-- Start from left off-screen
+    animate={{ x: 0 }}
+    exit={{ x: "-100%" }}          // <-- Animate out to the left
+    transition={{ type: "tween", duration: 0.3 }}
+  >
               <div className="flex justify-between items-center mb-6">
                 <img src={logo} alt="Logo" className="h-10" />
                 <button
@@ -295,7 +295,7 @@ const Navbar = () => {
               </nav>
 
               <div className="mt-8">
-                <CommonButton className="w-full bg-primary text-white py-2 hover:bg-[#3B4754] transition-colors duration-300">
+                <CommonButton  link="/contact" className="w-full bg-primary text-white py-2 hover:bg-[#3B4754] transition-colors duration-300">
                   Request a quote
                 </CommonButton>
               </div>

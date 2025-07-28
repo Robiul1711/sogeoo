@@ -7,61 +7,52 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import useAxiosPublic from "@/hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
-const data = [
-  {
-    id: 1,
-    question: "What services does Sógeo provide?",
-    answer: "We provide trusted insurance services designed to protect what matters most—your health, home, vehicle, and business. With clear policies, responsive claims support, and a personal touch, we ensure you're covered through every stage of life..",
-  },
-  {
-    id: 2,
-    question: "What services does Sógeo provide?",
-    answer: "We provide trusted insurance services designed to protect what matters most—your health, home, vehicle, and business. With clear policies, responsive claims support, and a personal touch, we ensure you're covered through every stage of life.",
-  },
-  {
-    id: 3,
-    question: "What services does Sógeo provide?",
-    answer: "We provide trusted insurance services designed to protect what matters most—your health, home, vehicle, and business. With clear policies, responsive claims support, and a personal touch, we ensure you're covered through every stage of life.",
-  },
-  {
-    id: 4,
-    question: "What services does norcal provide?",
-    answer: "We provide trusted insurance services designed to protect what matters most—your health, home, vehicle, and business. With clear policies, responsive claims support, and a personal touch, we ensure you're covered through every stage of life.",
-  },
-];
 const FAQ = () => {
+  const axiosPublic = useAxiosPublic();
+  const { data } = useQuery({
+    queryKey: ["faqs"],
+    queryFn: async () => {
+      const response = await axiosPublic.get("/faqs");
+      return response?.data;
+    },
+  });
+
+  const faqs = data?.data;
+
   return (
     <div className="section-padding-x section-padding-y">
-      <div className="w-full flex justify-between items-center gap-12 lg:gap-24">
-        <div className="w-1/2">
-          <img src={faq} alt="" />
+      <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-12 ">
+        {/* Left: Image */}
+        <div className="w-full lg:w-1/2  flex justify-center">
+          <img src={faq} alt="FAQ" className="max-w-full h-auto rounded-xl" />
         </div>
-        <div className="w-1/2">
-          <Title level="title48" className="text-Primary ">
+
+        {/* Right: FAQ Content */}
+        <div className="w-full lg:w-1/2">
+          <Title level="title48" className="text-Primary">
             Frequently Asked Questions
           </Title>
           <Title level="title18" className="text-[#6E6E6E] py-5">
             Have questions? Find quick answers to common inquiries about our
             insurance plans, claims, payments, and more. Need help? Our support
-            team is always here for you.{" "}
+            team is always here for you.
           </Title>
 
           <div>
             <Accordion type="single" collapsible>
-                {
-                  data.map((item) => (
-                    <AccordionItem value={`item-${item.id}`}>
-                      <AccordionTrigger className={"text-Primary text-2xl"}>
-                        {item.question}
-                      </AccordionTrigger>
-                      <AccordionContent className={"text-Primary text-lg"}>
-                        {item.answer}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))
-                }
-
+              {faqs?.map((item) => (
+                <AccordionItem key={item.id} value={`item-${item.id}`}>
+                  <AccordionTrigger className="text-Primary text-lg sm:text-xl">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-[#4B5563] text-base sm:text-lg">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
             </Accordion>
           </div>
         </div>

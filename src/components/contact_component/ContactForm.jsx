@@ -3,8 +3,27 @@ import contactForm from "../../assets/images/contactForm.png";
 import { useForm } from "react-hook-form";
 import Title from "../common/Title";
 import { FaUser, FaEnvelope, FaPhoneAlt, FaRegCommentDots } from "react-icons/fa";
-
+import useAxiosPublic from "@/hooks/useAxiosPublic";
+import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
+import { BeatLoader } from "react-spinners";
 const ContactForm = () => {
+  const axiosPublic = useAxiosPublic();
+  const ContactMutation = useMutation({
+    mutationFn: async (data) => {
+      const response = await axiosPublic.post("/contact-message-send", data);
+      return response?.data;
+    },
+    onSuccess: (response) => {
+      toast.success(response?.message || "Message sent successfully");
+    },
+    onError: (error) => {
+      console.log(error);
+      const errorMessage =
+        error.response?.data?.message || "Something went wrong, try again later!!";
+      toast.error(errorMessage);
+    },
+  })
    const {
     register,
     handleSubmit,
@@ -13,6 +32,7 @@ const ContactForm = () => {
 
   const onSubmit = (data) => {
     console.log("Form Data:", data);
+    ContactMutation.mutate(data);
   };
 
   const inputStyles =
@@ -66,7 +86,7 @@ const ContactForm = () => {
                <FaPhoneAlt className="absolute left-3 top-3.5 text-gray-400 text-sm" />
                <input
                  type="tel"
-                 {...register("phone", { required: "Phone is required" })}
+                 {...register("number", { required: "Phone is required" })}
                  placeholder="enter your phone number"
                  className={inputStyles}
                />
@@ -91,7 +111,17 @@ const ContactForm = () => {
              type="submit"
              className="w-full bg-[#394049] text-white py-3 rounded-full font-semibold hover:bg-[#2e353c] transition-all"
            >
-             Submit
+           {ContactMutation?.isPending ? (
+            <BeatLoader
+              loading={ContactMutation?.isPending}
+              color="white"
+              size={10}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          ) : (
+            "  Send Message"
+          )}
            </button>
          </form>
       </div>

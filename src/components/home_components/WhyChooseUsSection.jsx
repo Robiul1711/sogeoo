@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import whychoose from "@/assets/images/whychoose.png";
 import { GoArrowUpRight } from "react-icons/go";
+import useAxiosPublic from "@/hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 const data = [
   {
@@ -36,6 +38,15 @@ const data = [
 const WhyChooseUsSection = () => {
   const [showAll, setShowAll] = useState(false);
 
+  const axiosPublic = useAxiosPublic();
+  const { data: hero } = useQuery({
+    queryKey: ["hero"],
+    queryFn: async () => {
+      const response = await axiosPublic.get("/cms/home/hero");
+      return response?.data;
+    },
+  });
+  console.log(hero?.data);
   const visibleFeatures = showAll ? data : data.slice(0, 3);
 
   return (
@@ -50,17 +61,17 @@ const WhyChooseUsSection = () => {
         </h2>
       </div>
 
-      <p className="text-lg text-gray-600 mt-4 text-center max-w-5xl mx-auto mb-16">
+      <p className="text-lg text-gray-600 mt-4 text-center max-w-5xl mx-auto mb-10 md:mb-16">
         When you work with SóGeo Public Adjusters, you gain a trusted partner
         who truly looks out for your interests...
       </p>
 
       {/* Features */}
-      <div className="flex flex-col gap-20">
-        {visibleFeatures.map((feature, index) => (
+      <div className="flex flex-col gap-10 md:gap-20">
+        {hero?.data?.map((feature, index) => (
           <div
             key={feature.id}
-            className={`flex flex-col-reverse lg:flex-row items-stretch gap-10 relative ${
+            className={`flex flex-col-reverse lg:flex-row items-stretch gap-5 md:gap-10 relative ${
               index % 2 === 1 ? "lg:flex-row-reverse" : ""
             }`}
           >
@@ -69,7 +80,7 @@ const WhyChooseUsSection = () => {
               <img
                 src={feature.image}
                 alt={feature.title}
-                className="rounded-xl object-cover shadow-lg max-w-full h-auto"
+                className="rounded-xl shadow-lg w-full max-w-[500px] h-auto object-cover md:h-[350px] lg:h-[400px]"
               />
             </div>
 
@@ -82,8 +93,12 @@ const WhyChooseUsSection = () => {
                 0{index + 1}
               </div>
               <h3 className="text-2xl font-semibold">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
-              <button className="mt-10 text-Secondary flex items-center gap-2 cursor-pointer">
+              <p
+                className="text-gray-600"
+                dangerouslySetInnerHTML={{ __html: feature?.description }}
+              ></p>
+
+              <button className=" text-Secondary flex items-center gap-2 cursor-pointer">
                 Read More <GoArrowUpRight />
               </button>
             </div>
@@ -95,7 +110,7 @@ const WhyChooseUsSection = () => {
           <div className="text-center">
             <button
               onClick={() => setShowAll(true)}
-              className="px-10 rounded-full py-3 border border-Secondary bg-[#3B4754] text-white font-semibold  hover:bg-Secondary hover:text-white transition-all duration-200"
+              className="px-10 rounded-full py-2 sm:py-3 border border-Secondary bg-[#3B4754] text-white font-semibold  hover:bg-Secondary hover:text-white transition-all duration-200"
             >
               See All
             </button>

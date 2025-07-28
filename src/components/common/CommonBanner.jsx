@@ -1,12 +1,13 @@
 import banner from "@/assets/images/banner.png";
 import { motion } from "framer-motion";
 import Title from "../common/Title";
+import { Link } from "react-router-dom";
 
 const CommonBanner = ({ image, title, description, link, linkText, logo }) => {
   const MotionTitle = motion(Title);
 
   return (
-    <section className="relative w-full section-padding-x h-[350px] md:h-[700px] overflow-hidden">
+    <section className="relative w-full section-padding-x h-[480px] md:h-[700px] overflow-hidden">
       {/* Video Background */}
 
       <img
@@ -21,7 +22,7 @@ const CommonBanner = ({ image, title, description, link, linkText, logo }) => {
       {/* Overlay Content */}
       <div className="relative z-20 flex flex-col justify-center items-start h-full text-white px-4 md:px-10">
         <div className="pb-3">{logo}</div>
-        <div className="max-w-[70%] w-full">
+        <div className=" w-full">
           <MotionTitle
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
@@ -33,7 +34,7 @@ const CommonBanner = ({ image, title, description, link, linkText, logo }) => {
               ease: "easeOut",
             }}
             animate={{ opacity: 1 }}
-            className="leading-custom  "
+            className="md:leading-custom  "
             level="title64"
             viewport={{ once: true }}
           >
@@ -54,10 +55,11 @@ const CommonBanner = ({ image, title, description, link, linkText, logo }) => {
           >
             {description}
           </MotionTitle>
-
-          <motion.button className="px-10 py-3 rounded-full font-semibold transition duration-200 bg-white text-Primary">
+            <Link to={link}>
+          <motion.button className={`${linkText && "px-10 py-2 md:py-3 rounded-full font-semibold transition duration-200 bg-white text-Primary"}`}>
             {linkText}
           </motion.button>
+            </Link>
         </div>
       </div>
     </section>

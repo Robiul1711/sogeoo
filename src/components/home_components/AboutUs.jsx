@@ -35,7 +35,7 @@ const AboutUs = () => {
           <img
             src={about1}
             alt="Coastal Green Fields"
-            className="rounded-xl w-10/12 h-auto object-cover shadow-lg"
+            className="rounded-xl w-10/12 h-auto object-cover shadow-lg "
           />
 
           <motion.img
@@ -57,7 +57,7 @@ const AboutUs = () => {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInRight}
         >
-        <img src={logo} alt="" />
+        <img src={logo} alt="" className="w-32 h-auto my-6" />
           <h2 className="text-3xl md:text-5xl font-bold text-[#072c24] leading-tight mb-4">
             Melbourne’s heat pump experts delivering energy-efficient,
             year-round hydronic comfort.
@@ -78,25 +78,25 @@ const AboutUs = () => {
             variants={fadeInUp}
           >
             <div className="flex flex-col items-center">
-              <h3 className="text-5xl font-semibold">
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold">
                 128
                 <span className="text-xl align-super font-light">+</span>
               </h3>
               <p className="text-sm mt-1 text-gray-600">Project Complete</p>
             </div>
             <div className="border-r border-l px-8 flex flex-col items-center">
-              <h3 className="text-5xl font-semibold">
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold">
                 25
                 <span className="text-xl font-light align-super">+</span>
               </h3>
               <p className="text-sm mt-1 text-gray-600">Years Of Experience</p>
             </div>
             <div className="flex flex-col items-center">
-              <h3 className="text-5xl font-semibold">1.5k </h3>
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold">1.5k </h3>
               <p className="text-sm mt-1 text-gray-600">Happy Client</p>
             </div>
           </motion.div>
-               <CommonButton  
+               <CommonButton 
             className="mt-10 bg-[#BFB192] text-white"
           >
             Meet Us
