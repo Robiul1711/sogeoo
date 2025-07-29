@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
+import striptags from "striptags";
 const ExploringInnovations = () => {
   const axiosPublic = useAxiosPublic();
   const { data: caseStudies } = useQuery({
@@ -14,6 +14,7 @@ const ExploringInnovations = () => {
     },
   });
   const caseStudiesData = caseStudies?.data;
+  console.log(caseStudiesData);
   return (
     <section className="section-padding-y section-padding-x relative">
       {/* Heading */}
@@ -29,7 +30,7 @@ const ExploringInnovations = () => {
         to help you create a more comfortable, eco-friendly, and cost-effective
         space.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-10">
         <>
           {caseStudiesData?.map((item, index) => {
             return (
@@ -51,10 +52,9 @@ const ExploringInnovations = () => {
                   <h1 className="text-xl font-bold text-Primary">
                     {item?.title}
                   </h1>
-                  <p
-                    className="text-lg text-Primary mt-1"
-                    dangerouslySetInnerHTML={{ __html: item?.description }}
-                  ></p>
+                  <p className="text-lg text-Primary mt-1">
+                    {striptags(item?.description || "").slice(0, 100)}...
+                  </p>
                   <button className="text-Secondary  mt-6 flex items-center gap-2">
                     Learn More
                     <FaArrowRightLong />

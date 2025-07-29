@@ -5,7 +5,7 @@ import CommonButton from "./CommonButton";
 
 const ImageCard = () => {
   return (
-    <div className="section-padding-x  flex flex-col lg:flex-row items-center justify-between gap-10 w-full">
+    <div className="section-padding-x  flex flex-col lg:flex-row items-center justify-between gap-10 w-full pb-10 md:pb-20">
       
       {/* Image Section */}
       <div className="w-full lg:w-1/2 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]  rounded-2xl">
@@ -45,7 +45,7 @@ const ImageCard = () => {
           we encourage you to take action today.
         </Title>
 
-        <CommonButton className="mt-6 bg-Secondary text-white">
+        <CommonButton link={"/contact"} className="mt-6 inline-block bg-Secondary text-white">
           Request a quote
         </CommonButton>
       </div>

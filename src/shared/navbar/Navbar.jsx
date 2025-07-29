@@ -98,7 +98,7 @@ const Navbar = () => {
           } flex items-center justify-between w-full`}
         >
           <Link to="/">
-            <img src={logo} alt="Logo" className="h-10" />
+            <img src={logo} alt="Logo" className="xl:h-14 lg:h-12 h-8 sm:h-10" />
           </Link>
 
           {/* Desktop Nav */}
