@@ -18,8 +18,8 @@ const AboutUsMoreDetail = () => {
       return response?.data;
     },
   });
+ 
 
-  
   const [showAll, setShowAll] = useState(false);
 
   // Handle slicing only if data is loaded
