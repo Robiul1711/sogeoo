@@ -8,7 +8,6 @@ import {
 } from "../common/Icons";
 import useAxiosPublic from "@/hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
- 
 
 const AboutUsMoreDetail = () => {
   const axiosPublic = useAxiosPublic();
