@@ -18,6 +18,7 @@ const AboutUsMoreDetail = () => {
       return response?.data;
     },
   });
+ 
 
   const [showAll, setShowAll] = useState(false);
 
