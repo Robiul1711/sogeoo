@@ -2,23 +2,22 @@ import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 const ExploringInnovationsCard = ({ data }) => {
-
   return (
     <>
       {data?.map((item, index) => {
         return (
           <Link
-            to={`/blog-details/${item.id}`}
+            to={`/hydronic-details/${item.id}`}
             key={index}
             className="p-6 rounded-2xl bg-white border hover:shadow-lg duration-300 hover:scale-[1.01] hover:bg-[#EFE9D6]"
           >
-           {item?.images?.[0]?.image && (
-  <img
-    src={item.images[0].image}
-    className="w-full object-cover rounded-xl"
-    alt={item.title || "Blog image"}
-  />
-)}
+            {item?.images?.[0]?.image && (
+              <img
+                src={item.images[0].image}
+                className="w-full object-cover rounded-xl"
+                alt={item.title || "Blog image"}
+              />
+            )}
 
             <div>
               <p className="text-lg text-Primary py-4">{item?.date}</p>

@@ -1,38 +1,11 @@
 import React from "react";
 import CommonBanner from "@/components/common/CommonBanner";
-import geotharmal from "@/assets/images/hydronic.png";
 import BrandSection from "@/components/home_components/BrandSection";
 import banner3 from "@/assets/images/banner3.png";
 import ExploringInnovationsCard from "@/components/blog_components/ExploringInnovationsCard";
-import explore from "../../assets/images/explore.png";
 import useAxiosPublic from "@/hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
-const data = [
-  {
-    id: 1,
-    image: explore,
-    date: "Fed 24, 2025",
-    title: "Enhanced Features for a Better Experience",
-    description:
-      "Our platform is designed with user convenience in mind. From advanced progress tracking and interactive quizzes to real-time feedback and certificate generation, we’ve added features that make learning more engaging and effective. ",
-  },
-  {
-    id: 2,
-    image: explore,
-    date: "Fed 24, 2025",
-    title: "Enhanced Features for a Better Experience",
-    description:
-      "Our platform is designed with user convenience in mind. From advanced progress tracking and interactive quizzes to real-time feedback and certificate generation, we’ve added features that make learning more engaging and effective. ",
-  },
-  {
-    id: 3,
-    image: explore,
-    date: "Fed 24, 2025",
-    title: "Enhanced Features for a Better Experience",
-    description:
-      "Our platform is designed with user convenience in mind. From advanced progress tracking and interactive quizzes to real-time feedback and certificate generation, we’ve added features that make learning more engaging and effective. ",
-  },
-];
+
 const HydronicPage = () => {
   const axiosPublic = useAxiosPublic();
   const { data, isLoading } = useQuery({

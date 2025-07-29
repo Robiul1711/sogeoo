@@ -1,22 +1,44 @@
 import { HashLink } from "react-router-hash-link";
 import footerbanner from "../../assets/images/footerbanner.png";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-  Phone,
-  Twitter,
-  Youtube,
-} from "lucide-react";
+
+import { Facebook, Instagram, Linkedin, Youtube, Twitter } from "lucide-react"; 
 import footerlogo from "../../assets/images/footerlogo.png";
+import { Link } from "react-router-dom";
 
 const navLinks = [
-  { name: "Home", href: "/#home" },
-  { name: "About Us", href: "/#about" },
-  { name: "Case Studies", href: "/#case" },
-  { name: "Blog", href: "/#blog" },
-  { name: "Contact Us", href: "/#contact" },
+  { name: "Home", href: "/home" },
+  { name: "About Us", href: "/about" },
+  { name: "Case Studies", href: "/case" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact Us", href: "/contact" },
+];
+
+const socialLinks = [
+  {
+    Icon: Facebook,
+    url: "https://www.facebook.com",
+    name: "Facebook",
+  },
+  {
+    Icon: Instagram,
+    url: "https://www.instagram.com",
+    name: "Instagram",
+  },
+  {
+    Icon: Linkedin,
+    url: "https://www.linkedin.com",
+    name: "LinkedIn",
+  },
+  {
+    Icon: Youtube,
+    url: "https://www.youtube.com",
+    name: "YouTube",
+  },
+  {
+    Icon: Twitter,
+    url: "https://twitter.com",
+    name: "Twitter",
+  },
 ];
 
 const Footer = ({ scrolled, activeLink, setActiveLink }) => {
@@ -34,18 +56,21 @@ const Footer = ({ scrolled, activeLink, setActiveLink }) => {
             A clean, informative site showcasing SóGeo’s sustainable heat pump
             solutions for efficient hydronic heating and cooling in Melbourne.
           </p>
-          <div className="flex space-x-4">
-            {[Facebook, Instagram, Linkedin, Youtube, Twitter].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="p-2 bg-primary text-white rounded-[12px] hover:text-primary hover:bg-gray-200 transition-colors duration-300"
-                aria-label={`${Icon.name} social`}
-              >
-                <Icon className="w-5 h-5 md:w-6 md:h-6" />
-              </a>
-            ))}
-          </div>
+<div className="flex space-x-4">
+  {socialLinks.map(({ Icon, url, name }, i) => (
+    <a
+      key={i}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-2 bg-primary text-white rounded-[12px] hover:text-primary hover:bg-gray-200 transition-colors duration-300"
+      aria-label={`${name} social`}
+    >
+      <Icon className="w-5 h-5 md:w-6 md:h-6" />
+    </a>
+  ))}
+</div>
+
         </div>
 
         {/* Links & Contact */}
@@ -66,7 +91,7 @@ const Footer = ({ scrolled, activeLink, setActiveLink }) => {
                       el.scrollIntoView({ behavior: "smooth", block: "start" })
                     }
                     onClick={() => setActiveLink(link.href)}
-                    className={`relative block hover:text-primary ${
+                    className={`relative block hover:text-Secondary transition-colors duration-300 ${
                       activeLink === link.href
                         ? "text-primary font-bold"
                         : scrolled
@@ -86,13 +111,13 @@ const Footer = ({ scrolled, activeLink, setActiveLink }) => {
             <h2 className="text-white font-semibold border-b pb-2 mb-3 text-base">
               Services
             </h2>
-            <ul className="space-y-3 text-secondary">
-              <li>Ground Source Heat Pumps</li>
-              <li>Air Source Heat Pumps</li>
-              <li>Hydronic Heating & Cooling</li>
-              <li>System Design</li>
+            <ul className="space-y-3 text-secondary ">
+              <li className="hover:text-Secondary transition-colors duration-300"><Link to={"/services/ground-source-heat-pumps"}> Ground Source Heat Pumps</Link></li>
+              <li className="hover:text-Secondary transition-colors duration-300"><Link to={"/services/air-source-heat-pumps"}> Air Source Heat Pumps</Link></li>
+              <li className="hover:text-Secondary transition-colors duration-300"><Link to={"/services/hydronic-heating-and-cooling"}> Hydronic Heating & Cooling</Link></li>
             </ul>
           </div>
+
 
           {/* Security */}
           <div>
@@ -102,7 +127,7 @@ const Footer = ({ scrolled, activeLink, setActiveLink }) => {
             <ul className="space-y-3 text-secondary">
               <li>Privacy Policy</li>
               <li>Terms of Service</li>
-              <li>Cookies Settings</li>
+              
             </ul>
           </div>
 
@@ -120,9 +145,10 @@ const Footer = ({ scrolled, activeLink, setActiveLink }) => {
       </div>
 
       {/* Bottom Copyright */}
-      <div className="pt-6 mt-10 border-t border-dashed text-center text-white text-sm">
-        © 2023 SóGeo — All rights reserved.
-      </div>
+     <div className="pt-6 mt-10 border-t border-dashed text-center text-white text-sm">
+  © {new Date().getFullYear()} SóGeo — All rights reserved.
+</div>
+
     </footer>
   );
 };

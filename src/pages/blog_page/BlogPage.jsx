@@ -5,6 +5,7 @@ import ExploringInnovations from "@/components/blog_components/ExploringInnovati
 import BrandSection from "@/components/home_components/BrandSection";
 import useAxiosPublic from "@/hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import BlogCards from "@/components/blog_components/BlogCards";
 
 const BlogPage = () => {
   const axiosPublic = useAxiosPublic();
@@ -28,7 +29,7 @@ const BlogPage = () => {
         link={"/contact"}
         linkText={"Contact Us"}
       />
-      <ExploringInnova  tions blogs={blogs} isLoading={isLoading} />
+    <BlogCards blogs={blogs} />
       <BrandSection />
     </div>
   );

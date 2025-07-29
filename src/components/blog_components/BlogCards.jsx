@@ -1,19 +1,9 @@
-import useAxiosPublic from "@/hooks/useAxiosPublic";
-import { useQuery } from "@tanstack/react-query";
+
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-const ExploringInnovations = () => {
-  const axiosPublic = useAxiosPublic();
-  const { data: caseStudies } = useQuery({
-    queryKey: ["case-studies"],
-    queryFn: async () => {
-      const response = await axiosPublic.get("/case-studies");
-      return response?.data;
-    },
-  });
-  const caseStudiesData = caseStudies?.data;
+const BlogCards = ({blogs}) => {
   return (
     <section className="section-padding-y section-padding-x relative">
       {/* Heading */}
@@ -31,10 +21,10 @@ const ExploringInnovations = () => {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         <>
-          {caseStudiesData?.map((item, index) => {
+          {blogs?.map((item, index) => {
             return (
               <Link
-                to={`/case-studies-details/${item.id}`}
+                to={`/blog-details/${item.id}`}
                 key={index}
                 className="p-6 rounded-2xl bg-white border hover:shadow-lg duration-300 hover:scale-[1.01] hover:bg-[#EFE9D6]"
               >
@@ -69,4 +59,4 @@ const ExploringInnovations = () => {
   );
 };
 
-export default ExploringInnovations;
+export default BlogCards;

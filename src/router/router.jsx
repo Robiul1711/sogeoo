@@ -5,6 +5,7 @@ import AboutUsPage from "@/pages/aboutUs_page/AboutUsPage";
 import AirSourcePage from "@/pages/airSource_page/AirSourcePage";
 import BlogDetaisPage from "@/pages/blog_detail_page/BlogDetaisPage";
 import BlogPage from "@/pages/blog_page/BlogPage";
+import CaseStudiesDetails from "@/pages/caseStudies_page/CaseStudiesDetails";
 import CaseStudiesPage from "@/pages/caseStudies_page/CaseStudiesPage";
 import ContactPage from "@/pages/contact_page/ContactPage";
 import GeothermalWorks from "@/pages/geothermalWorks_page/GeothermalWorks";
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: "/case-studies",
         element: <CaseStudiesPage />,
+      },
+      {
+        path: "/case-studies-details/:id",
+        element: <CaseStudiesDetails />,
       },
       {
         path: "/contact",

@@ -1,20 +1,34 @@
 import CommonBanner from '@/components/common/CommonBanner'
-import React from 'react'
-import blogdetails from '../../assets/images/blogdetails.png'
-import StepByStep from '@/components/blogDetails_components/StepByStep'
 import ImageCard from '@/components/common/ImageCard'
 import BrandSection from '@/components/home_components/BrandSection'
+import { useParams } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+import useAxiosPublic from '@/hooks/useAxiosPublic'
+import BlogDetailsPage from '../blog_page/BlogDetailsPage'
 const BlogDetaisPage = () => {
+    const { id } = useParams();
+  const axiosPublic = useAxiosPublic();
+
+  const { data: BlogDetails } = useQuery({
+    queryKey: ["blog-details", id],
+    enabled: !!id,
+    queryFn: async () => {
+      const response = await axiosPublic.get(`/blogs/${id}`);
+      return response?.data;
+    },
+  });
+  const blogDetails = BlogDetails?.data;
+  console.log(blogDetails);
   return (
     <div>
       <CommonBanner 
-        image={blogdetails}
-        title={"A Step-by-Step Guide to Upgrading to an Air Source Heat Pump"}
-        description={"As the demand for sustainable & energy-efficient solutions increases by the day, air source heat pumps (ASHPs) are becoming the ideal choice for homeowners and businesses. If you currently use conventional systems, transitioning to this renewable energy technology is all you need to further reduce your energy bills in the long term."}
+        image={blogDetails?.images[0].image}
+        title={blogDetails?.title}
+        description={blogDetails?.description}
      link={"/contact"}
         linkText={"Contact Us"}
       />
-      <StepByStep />
+     <BlogDetailsPage blogDetails={blogDetails} />
       <ImageCard />
       <BrandSection />
     </div>

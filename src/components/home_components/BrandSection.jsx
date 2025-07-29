@@ -21,7 +21,7 @@ const BrandSection = () => {
   const brands = data.data;
 
   return (
-    <div className="relative w-full overflow-hidden ">
+    <div className="relative w-full overflow-hidden mb-10 ">
       <Title level="title48" className="text-center !font-bold text-Primary mb-8">
         Our Partners
       </Title>
