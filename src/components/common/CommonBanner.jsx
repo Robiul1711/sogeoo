@@ -41,20 +41,20 @@ const CommonBanner = ({ image, title, description, link, linkText, logo }) => {
             {title}
           </MotionTitle>
 
-          <MotionTitle
-            initial={{ x: 100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{
-              delay: 0.3,
-              x: { type: "spring", stiffness: 60 },
-              opacity: { duration: 0.6 },
-              ease: "easeOut",
-            }}
-            viewport={{ once: true }}
-            className="mb-5 md:mt-6 max-w-[1070px] w-full md:text-lg !font-normal"
-          >
-            {description}
-          </MotionTitle>
+         <MotionTitle
+  initial={{ x: 100, opacity: 0 }}
+  whileInView={{ x: 0, opacity: 1 }}
+  transition={{
+    delay: 0.3,
+    x: { type: "spring", stiffness: 60 },
+    opacity: { duration: 0.6 },
+    ease: "easeOut",
+  }}
+  viewport={{ once: true }}
+  className="mb-5 md:mt-6 max-w-[1070px] w-full md:text-lg !font-normal"
+  dangerouslySetInnerHTML={{ __html: description }}
+/>
+
             <Link to={link}>
           <motion.button className={`${linkText && "px-10 py-2 md:py-3 rounded-full font-semibold transition duration-200 bg-white text-Primary"}`}>
             {linkText}
