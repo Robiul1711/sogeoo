@@ -46,10 +46,11 @@ const FAQ = () => {
               {faqs?.map((item) => (
                 <AccordionItem key={item.id} value={`item-${item.id}`}>
                   <AccordionTrigger className="text-Primary text-lg sm:text-xl">
-                    {item.question}
+                    <div dangerouslySetInnerHTML={{ __html: item.question }} />
                   </AccordionTrigger>
+
                   <AccordionContent className="text-[#4B5563] text-base sm:text-lg">
-                    {item.answer}
+                    <div dangerouslySetInnerHTML={{ __html: item.answer }} />
                   </AccordionContent>
                 </AccordionItem>
               ))}

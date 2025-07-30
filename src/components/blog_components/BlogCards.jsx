@@ -2,7 +2,7 @@
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
+import striptags from "striptags";
 const BlogCards = ({blogs}) => {
   return (
     <section className="section-padding-y section-padding-x relative">
@@ -41,10 +41,9 @@ const BlogCards = ({blogs}) => {
                   <h1 className="text-xl font-bold text-Primary">
                     {item?.title}
                   </h1>
-                  <p
-                    className="text-lg text-Primary mt-1"
-                    dangerouslySetInnerHTML={{ __html: item?.description }}
-                  ></p>
+           <p className="text-lg text-Primary mt-1">
+  {striptags(item?.description || "").slice(0, 100)}...
+</p>
                   <button className="text-Secondary  mt-6 flex items-center gap-2">
                     Learn More
                     <FaArrowRightLong />

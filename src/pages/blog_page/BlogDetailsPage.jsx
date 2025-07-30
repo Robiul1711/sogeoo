@@ -15,7 +15,7 @@ const BlogDetailsPage = ({ blogDetails }) => {
         ></div>
         <div className="my-20">
 
-          <img src={blogDetails?.images[1].image} alt="" />
+          <img src={blogDetails?.images[0].image} alt="" />
         </div>
       </div>
       <HoverBorderCard
